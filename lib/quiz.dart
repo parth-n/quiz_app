@@ -12,13 +12,14 @@ class Quiz extends StatefulWidget {
 
 // leading underscore _ makes it a private class which can only be accesed in this file
 class _QuizState extends State<Quiz> {
-  Widget activeScreen =
-      const StartScreen(); //widgets can be stored in variables as they are nothing but objects in flutter.
+  var activeScreen =
+      'start-screen'; //widgets can be stored in variables as they are nothing but objects in flutter.
+  //widget? means that active screen can also be null.
 
   void switchScreen() {
     setState(() {
       //setState method calls the build method executes again when the setState is in a state class which is connected to a stateful class
-      activeScreen = const QuesScreen();
+      activeScreen = 'Ques-Screen';
     });
   }
 
@@ -37,7 +38,9 @@ class _QuizState extends State<Quiz> {
               end: Alignment.bottomRight,
             ),
           ),
-          child: activeScreen,
+          child: activeScreen == 'start-screen'
+              ? StartScreen(switchScreen)
+              : const QuesScreen(),
         ),
       ),
     );
