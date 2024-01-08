@@ -4,40 +4,32 @@ import 'package:quiz_app/data/questions.dart';
 import 'package:quiz_app/ques_summary.dart';
 
 class ResultsScreen extends StatelessWidget {
-  const ResultsScreen({
-    super.key,
-    required this.chosenAnswers,
-    required this.onRestart,
-  });
+  const ResultsScreen(
+      {super.key, required this.chosenAnswers, required this.onRestart});
 
-  final void Function() onRestart;
   final List<String> chosenAnswers;
+  final void Function() onRestart;
 
   List<Map<String, Object>> get summaryData {
     final List<Map<String, Object>> summary = [];
 
     for (var i = 0; i < chosenAnswers.length; i++) {
-      summary.add(
-        {
-          'question_index': i,
-          'question': questions[i].text,
-          'correct_answer': questions[i].answers[0],
-          'user_answer': chosenAnswers[i]
-        },
-      );
+      summary.add({
+        'question-index': i,
+        'question': questions[i].text,
+        'correct_ans': questions[i].answers[0],
+        'user_ans': chosenAnswers[i]
+      });
     }
-
     return summary;
   }
 
   @override
   Widget build(BuildContext context) {
     final numTotalQuestions = questions.length;
-    final numCorrectQuestions = summaryData
-        .where(
-          (data) => data['user_answer'] == data['correct_answer'],
-        )
-        .length;
+    final numCorrectQuestions = (summaryData
+        .where((data) => data['user_ans'] == data['correct_ans'])
+        .length);
 
     return SizedBox(
       width: double.infinity,
@@ -47,12 +39,11 @@ class ResultsScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'You answered $numCorrectQuestions out of $numTotalQuestions questions correctly!',
+              'You answered $numCorrectQuestions out of $numTotalQuestions BAATCHEET !',
               style: GoogleFonts.lato(
-                color: const Color.fromARGB(255, 230, 200, 253),
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+                  color: const Color.fromARGB(255, 230, 200, 253),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
             const SizedBox(
@@ -68,8 +59,8 @@ class ResultsScreen extends StatelessWidget {
                 foregroundColor: Colors.white,
               ),
               icon: const Icon(Icons.refresh),
-              label: const Text('Restart Quiz!'),
-            )
+              label: const Text('Restart BAATCHEET'),
+            ),
           ],
         ),
       ),

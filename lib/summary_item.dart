@@ -9,49 +9,42 @@ class SummaryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isCorrectAnswer =
-        itemData['user_answer'] == itemData['correct_answer'];
+    final isCorrectAnswer = itemData['user_ans'] == itemData['correct_ans'];
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        vertical: 8,
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          QuestionIdentifier(
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        QuestionIdentifier(
             isCorrectAnswer: isCorrectAnswer,
-            questionIndex: itemData['question-index'] as int,
-          ),
-          const SizedBox(width: 20),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  itemData['question'] as String,
-                  style: GoogleFonts.lato(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Text(itemData['user_answer'] as String,
-                    style: const TextStyle(
-                      color: Color.fromARGB(255, 202, 171, 252),
-                    )),
-                Text(itemData['correct_answer'] as String,
-                    style: const TextStyle(
-                      color: Color.fromARGB(255, 181, 254, 246),
-                    )),
-              ],
+            questionIndex: itemData['question-index'] as int),
+        const SizedBox(width: 20),
+        Expanded(
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Text(
+              itemData['question'] as String,
+              style: GoogleFonts.lato(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
-        ],
-      ),
+            const SizedBox(
+              height: 5,
+            ),
+            Text(
+              itemData['user_ans'] as String,
+              style: const TextStyle(
+                color: Color.fromARGB(255, 202, 171, 252),
+              ),
+            ),
+            Text(
+              itemData['correct_ans'] as String,
+              style: const TextStyle(color: Color.fromARGB(255, 181, 254, 246)),
+            )
+          ]),
+        )
+      ],
     );
   }
 }

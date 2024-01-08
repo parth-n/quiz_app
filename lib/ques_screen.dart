@@ -3,38 +3,34 @@ import 'package:quiz_app/answer_button.dart';
 import 'package:quiz_app/data/questions.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen({
-    super.key,
-    required this.onSelectAnswer,
-  });
+class QuesScreen extends StatefulWidget {
+  const QuesScreen({super.key, required this.onSelectAns});
 
-  final void Function(String answer) onSelectAnswer;
+  final void Function(String answer) onSelectAns;
 
   @override
-  State<QuestionsScreen> createState() {
-    return _QuestionsScreenState();
+  State<QuesScreen> createState() {
+    return _QuesScreenState();
   }
 }
 
-class _QuestionsScreenState extends State<QuestionsScreen> {
+class _QuesScreenState extends State<QuesScreen> {
   var currentQuestionIndex = 0;
 
-  void answerQuestion(String selectedAnswer) {
-    widget.onSelectAnswer(selectedAnswer);
-    // currentQuestionIndex = currentQuestionIndex + 1;
-    // currentQuestionIndex += 1;
+  void answerQuestion(String selectedAns) {
+    // to call the build method again, setState should be used.
+    widget.onSelectAns(selectedAns);
     setState(() {
-      currentQuestionIndex++; // increments the value by 1
+      currentQuestionIndex++;
     });
   }
 
   @override
-  Widget build(context) {
-    final currentQuestion = questions[currentQuestionIndex];
+  Widget build(BuildContext context) {
+    final currentQues = questions[currentQuestionIndex];
 
     return SizedBox(
-      width: double.infinity,
+      width: double.infinity, // double.infinity is for maximum width possible
       child: Container(
         margin: const EdgeInsets.all(40),
         child: Column(
@@ -42,23 +38,24 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              currentQuestion.text,
+              currentQues.text,
               style: GoogleFonts.lato(
-                color: const Color.fromARGB(255, 201, 153, 251),
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
+                  color: const Color.fromARGB(255, 217, 193, 247),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 30),
-            ...currentQuestion.shuffledAnswers.map((answer) {
+            const SizedBox(
+              height: 60,
+            ),
+            ...currentQues.getShuffledAnswers().map((answer) {
+              //(...) spread is a built in operator.
               return AnswerButton(
-                answerText: answer,
-                onTap: () {
-                  answerQuestion(answer);
-                },
-              );
-            })
+                  answertext: answer,
+                  onTap: () {
+                    answerQuestion(answer);
+                  });
+            }),
           ],
         ),
       ),
