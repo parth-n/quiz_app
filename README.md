@@ -4,7 +4,8 @@ A Quiz App Flutter project.
 
 ## Getting Started
 ![Screenshot](image.png)
-
+![Screenshot](<Screenshot from 2024-01-09 10-49-29.png>)
+![Screenshot](<Screenshot from 2024-01-09 10-49-48.png>)
 This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
