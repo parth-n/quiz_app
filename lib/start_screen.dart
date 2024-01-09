@@ -18,7 +18,7 @@ class StartScreen extends StatelessWidget {
               255), // transparency can be added using this color method or by wrapping the image asset around a widget called "Opacity".
         ),
         const SizedBox(height: 70),
-        Text('Learn BAATCHEET the fun way !',
+        Text('Learn Flutter the fun way !',
             style: GoogleFonts.lato(
                 color: const Color.fromARGB(255, 217, 193, 247),
                 fontSize: 23,

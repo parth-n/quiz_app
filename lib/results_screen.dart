@@ -39,7 +39,7 @@ class ResultsScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'You answered $numCorrectQuestions out of $numTotalQuestions BAATCHEET !',
+              'You answered $numCorrectQuestions out of $numTotalQuestions Questions !',
               style: GoogleFonts.lato(
                   color: const Color.fromARGB(255, 230, 200, 253),
                   fontSize: 20,
@@ -59,7 +59,7 @@ class ResultsScreen extends StatelessWidget {
                 foregroundColor: Colors.white,
               ),
               icon: const Icon(Icons.refresh),
-              label: const Text('Restart BAATCHEET'),
+              label: const Text('Restart Quiz'),
             ),
           ],
         ),
