@@ -1,8 +1,9 @@
 # quiz_app
 
-A new Flutter project.
+A Quiz App Flutter project.
 
 ## Getting Started
+(image.png)
 
 This project is a starting point for a Flutter application.
 
