@@ -3,7 +3,7 @@
 A Quiz App Flutter project.
 
 ## Getting Started
-(image.png)
+![Screenshot](image.png)
 
 This project is a starting point for a Flutter application.
 
